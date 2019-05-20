@@ -14,3 +14,5 @@
         <p>Chat message</p>
     </div>
 </div>
+
+<input type="text" name="message" class="form-control" [(ngModel)]="message" (keyup.enter)="sendMessage()" placeholder="Send message">
