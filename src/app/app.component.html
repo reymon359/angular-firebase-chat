@@ -1,5 +1,9 @@
-<ul>
-    <li class="text" *ngFor="let chat of chats | async">
-        {{chat.message}}
-    </li>
-</ul>
+<div class="container main-container">
+    <h1>Angular Chat</h1>
+    <h4>An online chat made with Angular, Firebase and Oauth from Google and Twitter</h4>
+    <hr>
+    <div class="chat-window">
+
+        <app-chat></app-chat>
+    </div>
+</div>
