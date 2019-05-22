@@ -3,9 +3,8 @@
 
 <div class="app-messages scrollbar" id="app-messages">
 
-    <div class="text-right">
-        <span class="badge badge-primary">Ramon</span>
-        <p>Chat message</p>
+    <div class="text-right" *ngFor="let chat of chatService.chats">
+        <span class="badge badge-primary">Ramon</span> {{chat.message}}
     </div>
 
 
