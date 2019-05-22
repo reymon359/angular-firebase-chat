@@ -20,10 +20,15 @@ export class ChatService {
   }
 
   loadMessages() {
-    this.itemsCollection = this.afs.collection<Message>('chats');
+    this.itemsCollection = this.afs.collection<Message>('chats', ref => ref.orderBy('date', 'desc')
+      .limit(5));
     return this.itemsCollection.valueChanges().pipe(
-      map((mensajes: Message[]) => {
-        this.chats = mensajes;
+      map((messages: Message[]) => {
+        this.chats = [];
+        for (const message of messages) {
+          this.chats.unshift(message);
+        }
+        return this.chats;
       }));
   }
 
