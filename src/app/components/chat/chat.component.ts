@@ -8,7 +8,7 @@ import { ChatService } from '../../services/chat.service';
 })
 export class ChatComponent implements OnInit {
   message = '';
-  element: any
+  element: any;
   constructor(public chatService: ChatService) {
     this.chatService.loadMessages().subscribe(() => {
       setTimeout(() => {

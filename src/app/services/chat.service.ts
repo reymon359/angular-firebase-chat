@@ -15,13 +15,32 @@ import { auth } from 'firebase/app';
 export class ChatService {
 
   private itemsCollection: AngularFirestoreCollection<Message>;
+
   public chats: Message[] = [];
 
-  constructor(private afs: AngularFirestore) {
+  public user: any = {};
 
+  constructor(private afs: AngularFirestore, public afAuth: AngularFireAuth) {
+    this.afAuth.authState.subscribe(userInfo => {
+      console.log('User state: ', userInfo); // The first time is null
+
+      if (!userInfo) { return; }
+
+      this.user.name = userInfo.displayName;
+      this.user.uid = userInfo.uid;
+      
+
+    });
 
   }
+  login(provider: string) {
+    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+  }
+  logout() {
+    this.afAuth.auth.signOut();
+  }
 
+  // We load the messages from the firebase collection
   loadMessages() {
     this.itemsCollection = this.afs.collection<Message>('chats', ref => ref.orderBy('date', 'desc')
       .limit(5));
