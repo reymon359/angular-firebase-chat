@@ -3,7 +3,11 @@
     <h4>An online chat made with Angular, Firebase and Oauth from Google and Twitter</h4>
     <hr>
 
-    <app-login></app-login>
+    <div class="col-md-12 text-right" *ngIf="chatservice.user.uid">
+        <button (click)="chatservice.logout()" type="button" class="btn btn-outline-danger">Logout</button>
+    </div>
+
+    <app-login *ngIf="!chatservice.user.uid"></app-login>
 
     <!-- <div class="chat-window pb-3">
         <app-chat></app-chat>

@@ -28,15 +28,22 @@ export class ChatService {
 
       this.user.name = userInfo.displayName;
       this.user.uid = userInfo.uid;
-      this.user.photoURL =  userInfo.photoURL;
+      this.user.photoURL = userInfo.photoURL;
 
     });
 
   }
   login(provider: string) {
-    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    if (provider === 'google') {
+
+      this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    } else {
+      this.afAuth.auth.signInWithPopup(new auth.TwitterAuthProvider());
+
+    }
   }
   logout() {
+    this.user = {};
     this.afAuth.auth.signOut();
   }
 
