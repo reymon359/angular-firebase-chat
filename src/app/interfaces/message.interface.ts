@@ -3,4 +3,5 @@ export interface Message {
     message: string;
     date?: number;
     uid?: string;
+    photoURL?: string;
 }

@@ -28,7 +28,7 @@ export class ChatService {
 
       this.user.name = userInfo.displayName;
       this.user.uid = userInfo.uid;
-      
+      this.user.photoURL =  userInfo.photoURL;
 
     });
 
