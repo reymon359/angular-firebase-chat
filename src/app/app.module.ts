@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {  FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 
 // Firebase
@@ -15,11 +15,13 @@ import { environment } from '../environments/environment';
 // Components
 import { ChatComponent } from './components/chat/chat.component';
 import { ChatService } from './services/chat.service';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChatComponent
+    ChatComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

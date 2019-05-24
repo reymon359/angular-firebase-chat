@@ -4,7 +4,10 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { Message } from '../interfaces/message.interface';
 
 import { map } from 'rxjs/operators';
-import { text } from '@angular/core/src/render3';
+
+// Firebase oauth
+import { AngularFireAuth } from '@angular/fire/auth';
+import { auth } from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
