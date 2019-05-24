@@ -2,17 +2,17 @@
 <hr>
 
 <div class="app-messages scrollbar" id="app-messages">
+    <!-- <div class="text-right">
+        <span class="badge badge-success">Ana</span>
+        <p>Chat message</p>
+    </div> -->
 
-    <div class="text-right" *ngFor="let chat of chatService.chats">
-        <span class="badge badge-primary">Ramon</span>
+    <div [ngClass]="{'text-right': chatService.user.uid == chat.uid}" *ngFor="let chat of chatService.chats">
+        <span [ngClass]="{'badge-primary': chatService.user.uid == chat.uid,'badge-success': chatService.user.uid != chat.uid}" class="badge">{{ chat.name}}</span>
         <p>{{chat.message}}</p>
     </div>
 
 
-    <div>
-        <span class="badge badge-success">Ana</span>
-        <p>Chat message</p>
-    </div>
 
 </div>
 
