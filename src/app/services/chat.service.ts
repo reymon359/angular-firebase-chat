@@ -49,7 +49,7 @@ export class ChatService {
   // We load the messages from the firebase collection
   loadMessages() {
     this.itemsCollection = this.afs.collection<Message>('chats', ref => ref.orderBy('date', 'desc')
-      .limit(5));
+      .limit(20));
     return this.itemsCollection.valueChanges().pipe(
       map((messages: Message[]) => {
         this.chats = [];

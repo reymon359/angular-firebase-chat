@@ -4,12 +4,14 @@
         <img src="/assets/images/chat_icon.png" alt="">
         <h1>Angular Chat</h1>
         <h4>An online chat made with Angular, Firebase and Oauth from Google and Twitter</h4>
+
+
     </div>
     <hr>
-
-    <div class="col-md-12 text-right" *ngIf="chatservice.user.uid">
+    <div class="col-md-12 text-right m-4" *ngIf="chatservice.user.uid">
         <button (click)="chatservice.logout()" type="button" class="btn btn-outline-danger">Logout</button>
     </div>
+
 
     <app-login *ngIf="!chatservice.user.uid"></app-login>
 
