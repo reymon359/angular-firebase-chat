@@ -8,7 +8,7 @@
     </div> -->
 
     <div [ngClass]="{'text-right': chatService.user.uid == chat.uid}" *ngFor="let chat of chatService.chats">
-        <span [ngClass]="{'badge-primary': chatService.user.uid == chat.uid,'badge-success': chatService.user.uid != chat.uid}" class="badge">{{ chat.name}}</span>
+        <span [ngClass]="{'badge-primary': chatService.user.uid == chat.uid,'badge-success': chatService.user.uid != chat.uid}" class="badge">{{ chat.name}} <img height="20" src={{chat.photoURL}} alt=""></span>
         <p>{{chat.message}}</p>
     </div>
 

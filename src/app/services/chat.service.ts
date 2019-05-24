@@ -22,8 +22,6 @@ export class ChatService {
 
   constructor(private afs: AngularFirestore, public afAuth: AngularFireAuth) {
     this.afAuth.authState.subscribe(userInfo => {
-      console.log('User state: ', userInfo); // The first time is null
-
       if (!userInfo) { return; }
 
       this.user.name = userInfo.displayName;
@@ -46,7 +44,8 @@ export class ChatService {
     this.user = {};
     this.afAuth.auth.signOut();
   }
-
+  
+  // Using Firebase collections
   // We load the messages from the firebase collection
   loadMessages() {
     this.itemsCollection = this.afs.collection<Message>('chats', ref => ref.orderBy('date', 'desc')
@@ -66,7 +65,8 @@ export class ChatService {
       name: this.user.name,
       message: text,
       date: new Date().getTime(),
-      uid: this.user.uid
+      uid: this.user.uid,
+      photoURL: this.user.photoURL
     };
 
     return this.itemsCollection.add(message);
