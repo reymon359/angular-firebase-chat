@@ -1,5 +1,7 @@
 # AngularFirebaseChat
 
+An online chat web app made with Angular and Firebase that has twitter and google oauth
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
 
 ## Development server
